@@ -3,8 +3,8 @@
 A simple Telegram bot to get real-time crypto prices using the CoinGecko API.
 
 ## 🚀 Features
-- `.price bitcoin` – Get live price and 24h change
-- `.top` – Top 5 coins by market cap
+- `/coin_name` – Get live price and 24h change
+- `/top5` – Top 5 coins by market cap
 - `.info solana` – View basic coin info
 - `.help` – List all commands
 
