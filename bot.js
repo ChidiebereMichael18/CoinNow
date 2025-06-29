@@ -41,19 +41,28 @@ bot.onText(/^\/help$/, (msg) => {
   }
 });
 
-// Handle /<coin> commands like /btc, /eth, /doge, etc.
-bot.onText(/^\/([a-z0-9\-]+)$/i, async (msg, match) => {
-  const coin = match[1].toLowerCase();
-  if (commands['price']) {
-    // Call the price handler with the coin as argument
-    commands['price'](bot, msg, [coin]);
-  }
-});
-
 // Handle /topcoin command
 bot.onText(/^\/topcoin$/, (msg) => {
   if (commands['topcoin']) {
     commands['topcoin'](bot, msg, []);
+  }
+});
+
+// Handle /top5 command to show top 5 coins
+bot.onText(/^\/top5$/, (msg) => {
+  if (commands['top5']) {
+    commands['top5'](bot, msg, []);
+  }
+});
+
+// Handle /<coin> commands like /btc, /eth, /doge, etc.
+bot.onText(/^\/([a-z0-9\-]+)$/i, async (msg, match) => {
+  const coin = match[1].toLowerCase();
+  // Prevent conflict with /top5 and /topcoin commands
+  if (['top5', 'topcoin', 'help', 'start'].includes(coin)) return;
+  if (commands['price']) {
+    // Call the price handler with the coin as argument
+    commands['price'](bot, msg, [coin]);
   }
 });
 

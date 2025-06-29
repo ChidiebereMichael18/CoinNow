@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 module.exports = {
-  command: 'top',
+  command: 'top5',
   handler: async (bot, msg) => {
     try {
       const res = await axios.get(`https://api.coingecko.com/api/v3/coins/markets`, {
