@@ -30,7 +30,7 @@ fs.readdirSync(path.join(__dirname, 'commands')).forEach(file => {
 bot.onText(/^\/start$/, (msg) => {
   bot.sendMessage(
     msg.chat.id,
-    `👋 Welcome to CryptoNow Bot!\n\nUse /help to see available commands.`
+    `👋 Welcome to CryptoNow Bot!\n\nA simple Telegram bot to get real-time crypto prices \n\nUse /help to see available commands.`
   );
 });
 
